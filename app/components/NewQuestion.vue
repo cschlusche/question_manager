@@ -258,8 +258,8 @@ export default {
       this.labelText = "";
       this.cameraPermissionGranted = false;
 
-      // navigate to list
-      this.$emit("new-question-stored");
+
+      this.$emit("new-question-stored"); // navigate to list
       console.log(
         "(1) NewQuestion.onSubmitTapped() emits event: new-question-stored"
       );

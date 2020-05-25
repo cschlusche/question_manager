@@ -15,13 +15,16 @@ A-Send intent to WhatsApp
 [x] Take a collection of photos (and captions)
     [x] Captions can not be differnetiated for each photo (@see SocialShare.shareMultipleImages() )
       => question.shortDescription should be the only caption for-each photo
-[ ] @low Scale photos @actualCommit
+[ ] @critical Aufgenommene Fotos werden nicht mehr direkt angezeigt (nachdem Hinzufügen-Dialog erneut aufgerufen wird)
+      [ ] @low Scale photos @actualCommit
 [x] Send multiple photos with corresponding annotations to WhatsApp 
 
 
 B-Make data persistent
 [] @critical Implement couchbase @actualCommit
-   [] @critical Integrate Couchbase API with VueX (store.js mutations.[mt.INSERT_QUESTION]) 
+  [] @critical IDs are overwritten during INIT 
+  [] @critical Integrate Couchbase API with VueX (store.js mutations.[mt.INSERT_QUESTION]) 
+  [] @critical Use trace-module for tracing (https://www.nativescript.org/blog/tracing-nativescript-applications) @actualCommit
 
 C-Code documentation and deployment
 [] @low Document code compliant with JSDoc @actualCommit
@@ -38,6 +41,9 @@ D-Set up server data store
 E-Additional functionality
 [] @high Create component ViewQuestion (modify NewQuestion) @actualCommit
 [] Expand data-structure to enable multiple photos, categories, tags, etc. @actualCommit
+[] Create Feedback concept (link: https://github.com/EddyVerbruggen/nativescript-feedback)
+[] Bugsnag: Error reporting from other sources (link: https://market.nativescript.org/plugins/nativescript-bugsnag)
+[] Pick an already taken photo (link: https://github.com/NativeScript/nativescript-imagepicker)
 
 F-Code security
 [] Use JavaScript strict mode (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)

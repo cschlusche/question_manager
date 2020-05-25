@@ -26,21 +26,23 @@ import mt from "../store/mutation-types";
 //import { SocialShare } from "nativescript-social-share";
 const SocialShare = require("nativescript-social-share");
 
+/* Couchbase */
+
 export default {
   name: "QuestionManager",
   store,
   components: {
     QuestionItem
   },
-  computed: {
-    questionList() {
-      return store.state.questionList;
-    }
-  },
   created() {
     //TODO load data from Couchbase
     console.log("(0) store.dispatch('INIT_QUESTION_MANAGER')");
     store.dispatch(mt.INIT_QUESTION_MANAGER);
+  },
+  computed: {
+    questionList() {
+      return store.state.questionList;
+    }
   },
   data() {
     return {
@@ -74,10 +76,6 @@ export default {
      */
     handleShareItemTapped(qID) {
       //TODO vuex: is direct reading allowed? might be unproblematic unless no writing.
-      
-      
-    
-
 
       SocialShare.shareMultipleImages(
         this.questionList[qID].shortDescription,
