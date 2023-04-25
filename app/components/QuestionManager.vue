@@ -5,8 +5,10 @@
       <QuestionItem
         :item="item"
         :index="$index"
+        :id="item.id"
         @indicator-tapped="handleIndicatorTapped"
         @share-item-tapped="handleShareItemTapped"
+        @edit-item-tapped="demo_handleEditItemTapped"
       ></QuestionItem>
     </v-template>
   </ListView>
@@ -46,20 +48,6 @@ export default {
   },
   data() {
     return {
-      /**
-       * model for list of questions
-       *
-       * @property {number} id                      - identifier
-       * @property {number} status {0: open; 1:ongoing; 2:closed}
-       * @property {string} shortTitle
-       * @property {string} shortDescription
-       * @property {string} longDescription
-       * @property {object} categoriesList {categoriesLectures}
-       * @property tags
-       *
-       */
-      //TODO how to import this object from an separate file?
-      //questionStatus: { open: 0, closed: 1 },
     };
   },
   methods: {
@@ -83,6 +71,10 @@ export default {
       );
 
       //TODO set question status to "shared" (introduce additional status beside open/closed)
+    },
+    demo_handleEditItemTapped(qID){
+      console.log("QuestionManager.vue: demo_handleEditItemTapped");
+      this.$emit('edit-item-tapped', qID)
     }
   }
 };

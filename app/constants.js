@@ -22,7 +22,7 @@ export default {
     },
 
     /**
-     * NewQuestion: Items for ListPicker
+     * QuestionWorkbench: Items for ListPicker
      * @readonly
      */
     categoriesLecturesItems : [

@@ -34,4 +34,5 @@ typings/
 !.vscode/extensions.json
 
 # my-own
-./screens/*
+/screens/
+/app/App_Resources/

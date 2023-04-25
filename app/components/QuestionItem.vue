@@ -9,7 +9,8 @@
       textWrap="true"
       ref="title"
     />
-    <Button col="2" text.decode="&#xf14d;" class="fas" @tap="onShareItemTap" />
+    <!--<Button col="2" text.decode="&#xf14d;" class="fas" @tap="onShareItemTap" />-->
+    <Button col="2" text.decode="&#xf044;" class="fas" @tap="onEditWorkbenchTap" />
   </GridLayout>
 </template>
 
@@ -27,6 +28,9 @@ export default {
   props: {
     index: {
       type: Number
+    },
+    id: {
+      type: String
     }
   },
   computed: {
@@ -37,12 +41,9 @@ export default {
     item: {
       get() {
         return store.state.questionList[this.index];
-      } /*,
-            set(value) {
-                // xxx TODO static only for items text
-                store.state.questionList[ this.index ].text = value;
-            }*/
+      }
     },
+
     itemClass: function() {
       return {
         odd: this.index % 2 == 1,
@@ -58,6 +59,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * TODO integrate in onUpdateItem()
+     */
     onIndicatorTap: function(event) {
       /* eventName: "tap"
             object: {Label}
@@ -71,7 +75,8 @@ export default {
       /* event {eventName: "returnPress", object: TextField{}}*/
       console.log("onUpdateItem");
 
-      let qChanges = { id: this.index };
+      /* qChanges {idx; id; shortTitle} */
+      let qChanges = { idx: this.index, id: this.id };
 
       switch (event.eventName) {
         case "returnPress":
@@ -86,6 +91,12 @@ export default {
       /* eventName:"tap" */
 
       this.$emit("share-item-tapped", this.index);
+    },
+
+    onEditWorkbenchTap: function() {
+
+      console.log("(1) edit-item-tapped fired.");
+      this.$emit('edit-item-tapped', this.id);
     }
   }
 };
