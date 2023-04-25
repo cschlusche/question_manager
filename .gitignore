@@ -36,3 +36,9 @@ typings/
 # my-own
 /screens/
 /app/App_Resources/
+
+.editorconfig
+.vscode/
+/app/fonts/
+commit_msg.txt
+package-lock.json
